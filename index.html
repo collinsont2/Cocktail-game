@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cocktail game</title>
+</head>
+
+<body>
+
+    <button id="Startgame" type="button">Play</button>
+    <button id="Recipes" type="button">Recipes</button>
+    <button id="About" type="button">About</button>
+
+    <p id="martiniRecipe"></p>
+    <script>
+        const martini = ["Gin", "Dry Vermouth", "Olive"];
+        const Startgame = document.getElementById("Startgame");
+        const Recipes = document.getElementById("Recipes");
+        const About = document.getElementById("About");
+
+        Recipes.addEventListener("click", function () {
+            document.body("martiniRecipe").innerHTML = martini;
+
+        });
+    </script>
+</body>
+
+</html>
