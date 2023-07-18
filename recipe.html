@@ -8,10 +8,17 @@
 
         }
 
-        .pixel-image {
+        .pixel-image-martini,
+        .pixel-image-pinacolada,
+        .pixel-image-bloodymary {
             image-rendering: pixelated;
             width: 15%;
             height: 15%;
+        }
+
+        .divi {
+            display: flex;
+            align-items: center;
         }
     </style>
     <h1>Cocktail game</h1>
@@ -19,9 +26,18 @@
 
 <body>
     <h2>Recipes</h2>
-    <ul id="martiniArray"></ul>
-    <img src="pixil-frame-0 (3).png" alt="Martini" class="pixel-image">
-    <ul id="pinaColadaArray"></ul>
+    <div class="divi">
+        <img src="pixil-frame-0 (3).png" alt="Martini" class="pixel-image-martini">
+        <ul id="martiniArray"></ul>
+    </div>
+    <div class="divi">
+        <img src="pinacolada.png" alt="pinaColada" class="pixel-image-pinacolada">
+        <ul id="pinaColadaArray"></ul>
+    </div>
+    <div class="divi">
+        <img src="pixil-frame-0 (9).png" alt="bloodyMary" class="pixel-image-bloodymary">
+        <ul id="bloodyMaryArray"></ul>
+    </div>
     <script>
         let martini = ["Gin", "Dry Vermouth", "Olive"];
         let list = document.getElementById("martiniArray");
@@ -37,18 +53,19 @@
             let li =
                 document.createElement("li");
             li.innerText = item;
-            list.appendChild(li);
+            listp.appendChild(li);
         });
         let bloodyMary = ["Vodka", "Tomato Juice", "Lemon Juice", "Worcestershire Sause", "Tabasco"];
+        let listb = document.getElementById("bloodyMaryArray");
+        bloodyMary.forEach((item) => {
+            let li =
+                document.createElement("li");
+            li.innerText = item;
+            listb.appendChild(li);
+        });
 
     </script>
 
-
-
-
-
-    <img src="pinacolada.png" alt="pinaColada" class="pixel-image">
-    <img src="pixil-frame-0 (9).png" alt="bloodyMary" class="pixel-image">
 
 </body>
 
