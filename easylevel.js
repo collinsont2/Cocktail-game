@@ -7,6 +7,11 @@ let bloodyMary = ["Vodka", "Tomato Juice", "Lemon Juice", "Worcestershire Sause"
 const drinklist = ['martini', 'pinaColada', 'bloodyMary'];
 
 // shuffle array of drinks to randomise question given
-const shuffledArray = drinklist.sort(() => Math.random() - 0.3);
+const shuffledArray = drinklist.sort(() => Math.random() - 0.6);
 var drink = shuffledArray[0];
 document.getElementById("title").innerHTML = drink
+
+if (drink == "martini") {
+    //var image = document.getElementById("empty-martini");
+    //image.style.display = 'block';
+}
