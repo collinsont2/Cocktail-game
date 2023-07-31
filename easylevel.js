@@ -7,11 +7,22 @@ let bloodyMary = ["Vodka", "Tomato Juice", "Lemon Juice", "Worcestershire Sause"
 const drinklist = ['martini', 'pinaColada', 'bloodyMary'];
 
 // shuffle array of drinks to randomise question given
-const shuffledArray = drinklist.sort(() => Math.random() - 0.6);
+const shuffledArray = drinklist.sort(() => Math.random() - 0.5);
 var drink = shuffledArray[0];
-document.getElementById("title").innerHTML = drink
+document.getElementById("title").innerHTML = drink + ("!")
 
-if (drink == "martini") {
-    //var image = document.getElementById("empty-martini");
-    //image.style.display = 'block';
+//show the empty glass of the choosen drink
+function drinkImage() {
+    for (let i of shuffledArray) {
+        if (drink == i) {
+            var image = document.getElementById("empty-" + (i))
+            image.style.display = 'inline-block';
+        } else {
+            break;
+        }
+    }
 }
+
+drinkImage();
+
+//display ingredients with one missing
