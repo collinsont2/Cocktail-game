@@ -1,6 +1,6 @@
 //lists of ingredients for drinks
 let martini = ["Gin", "Dry Vermouth", "Olive"];
-let pinaColada = ["White Rum", "Bacardi", "Cocoanut", "pineapple", "Lime Juice"];
+let pinaColada = ["White Rum", "Bacardi", "Coconut", "pineapple", "Lime Juice"];
 let bloodyMary = ["Vodka", "Tomato Juice", "Lemon Juice", "Worcestershire Sause", "Tabasco"];
 
 // list of drinks questions

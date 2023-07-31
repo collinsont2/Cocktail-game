@@ -3,15 +3,13 @@
 
 <head>
     <style>
-        body {
-            background-color: #f07f9f;
-        }
         h1{
             text-align: center;
         }
+
         .pixel-button {
-            margin-top:10px;
-            text-align: center;
+            position: absolute;
+            left: 10px;
             align-self: center;
             background-color: #fff;
             background-image: none;
@@ -25,7 +23,7 @@
             box-sizing: border-box;
             color: #41403e;
             cursor: pointer;
-            display: block;
+            display: inline-block;
             font-family: Bradley Hand, cursive;
             font-size: 1rem;
             line-height: 23px;
@@ -40,8 +38,8 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
-            width: 100px;
         }
+
         .pixel-button:hover {
             box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
             transform: translate3d(0, 2px, 0);
@@ -51,6 +49,10 @@
             box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
         }
 
+        body {
+            background-color: #f07f9f;
+
+        }
         div{
             margin: 0;
             position: absolute;
@@ -65,11 +67,11 @@
 
 <body>
     <div>
-        <a href="gameLevels.html" class="pixel-button">Play</a>
-        <a href="recipe/recipe.html" class="pixel-button">Recipe</a>
-        <a href="about.html" class="pixel-button">About</a>
+        <a href="easyLevel.html" class="pixel-button" role="button">Easy</a>
+        <a href="hardLevel.html" class="pixel-button" role="button">Hard</a>
     </div>
     
+
 
 
 
