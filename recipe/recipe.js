@@ -6,7 +6,7 @@ martini.forEach((item) => {
     li.innerText = item;
     list.appendChild(li);
 });
-let pinaColada = ["White Rum", "Bacardi", "Cocoanut", "pineapple", "Lime Juice"];
+let pinaColada = ["White Rum", "Bacardi", "Coconut", "pineapple", "Lime Juice"];
 let listp = document.getElementById("pinaColadaArray");
 pinaColada.forEach((item) => {
     let li =
