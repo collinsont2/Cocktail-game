@@ -26,3 +26,18 @@ function drinkImage() {
 drinkImage();
 
 //display ingredients with one missing
+if (drink == 'martini') {
+    const shuffledmartini = martini.sort(() => Math.random() - 0.5);
+    let ingredients = document.getElementById("ingredients");
+    var f = 0;
+    for (let i of shuffledmartini) {
+        if (f < 2) {
+            let li = document.createElement("li");
+            li.innerText = i;
+            ingredients.appendChild(li);
+            f += 1;
+        } else {
+            break;
+        }
+    }
+}
