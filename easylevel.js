@@ -24,22 +24,19 @@ function drinkImage() {
 }
 function ansTrue() {
     alert("entered");
-    if (drink == 'martini') {
-        alert("as martini");
-        var userAns = document.getElementById("missing-ingredient").value;
-        alert("user answer = " + userAns);
-        alert("the correct answer = " + answer);
-        const userAnsCap = userAns.toUpperCase();
-        alert("comparing user answer = " + userAnsCap);
-        const answerCap = answer.toUpperCase();
-        alert("comparing answer = " + answerCap);
-        if (userAnsCap == answerCap) {
-            correct = true;
-            alert("correct");
-        } else {
-            correct = false;
-            alert("incorrect");
-        }
+    var userAns = document.getElementById("missing-ingredient").value;
+    alert("user answer = " + userAns);
+    alert("the correct answer = " + answer);
+    const userAnsCap = userAns.toUpperCase();
+    alert("comparing user answer = " + userAnsCap);
+    const answerCap = answer.toUpperCase();
+    alert("comparing answer = " + answerCap);
+    if (userAnsCap == answerCap) {
+        correct = true;
+        alert("correct");
+    } else {
+        correct = false;
+        alert("incorrect");
     }
 }
 
@@ -52,10 +49,11 @@ function ansTrue() {
 drinkImage();
 
 //display ingredients with one missing
+let ingredients = document.getElementById("ingredients");
+var f = 0;
+//for martini
 if (drink == 'martini') {
     var shuffledmartini = martini.sort(() => Math.random() - 0.5);
-    let ingredients = document.getElementById("ingredients");
-    var f = 0;
     for (let i of shuffledmartini) {
         if (f < 2) {
             let li = document.createElement("li");
@@ -64,7 +62,43 @@ if (drink == 'martini') {
             f += 1;
         } else {
             var answer = shuffledmartini[shuffledmartini.length - 1];
-            alert("the correct answer = " + answer);
+            //alert("the correct answer = " + answer);
+            f = 0;
+            break;
+        }
+    }
+}
+//for bloodymary
+if (drink == 'bloodyMary') {
+    var shuffledBM = bloodyMary.sort(() => Math.random() - 0.5);
+    for (let i of shuffledBM) {
+        if (f < 4) {
+            let li = document.createElement("li");
+            li.innerText = i;
+            ingredients.appendChild(li);
+            f += 1;
+        } else {
+            var answer = shuffledBM[shuffledBM.length - 1];
+            //alert("the correct answer = " + answer);
+            f = 0;
+            break;
+        }
+    }
+}
+// for pinacolada
+if (drink == 'pinaColada') {
+    alert("the question is pinacolada")
+    var shuffledPC = pinaColada.sort(() => Math.random() - 0.5);
+    for (let i of shuffledPC) {
+        if (f < 4) {
+            let li = document.createElement("li");
+            li.innerText = i;
+            ingredients.appendChild(li);
+            f += 1;
+        } else {
+            var answer = shuffledPC[shuffledPC.length - 1];
+            //alert("the correct answer = " + answer);
+            f = 0;
             break;
         }
     }
