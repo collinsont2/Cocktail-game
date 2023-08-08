@@ -2,15 +2,12 @@
 let martini = ["Gin", "Dry Vermouth", "Olive"];
 let pinaColada = ["White Rum", "Bacardi", "Coconut", "pineapple", "Lime Juice"];
 let bloodyMary = ["Vodka", "Tomato Juice", "Lemon Juice", "Worcestershire Sause", "Tabasco"];
-
 // list of drinks questions
 const drinklist = ['martini', 'pinaColada', 'bloodyMary'];
-
 // shuffle array of drinks to randomise question given
 const shuffledDrink = drinklist.sort(() => Math.random() - 0.5);
 var drink = shuffledDrink[0];
 document.getElementById("title").innerHTML = drink + ("!")
-
 //show the empty glass of the choosen drink
 function drinkImage() {
     for (let i of shuffledDrink) {
@@ -24,36 +21,29 @@ function drinkImage() {
 }
 function ansTrue() {
     alert("entered");
-    if (drink == 'martini') {
-        alert("as martini");
-        var userAns = document.getElementById("missing-ingredient").value;
-        const answer = [shuffledmartini.length - 1];
-        alert(answer);
-        const userAnsCap = userAns.toUpperCase();
-        const answerCap = answer.toUpperCase();
-        if (userAnsCap = answerCap) {
-            correct = true;
-            alert(correct);
-        } else {
-            correct = false;
-            alert(correct);
-        }
+    var userAns = document.getElementById("missing-ingredient").value;
+    alert("user answer = " + userAns);
+    alert("the correct answer = " + answer);
+    const userAnsCap = userAns.toUpperCase();
+    alert("comparing user answer = " + userAnsCap);
+    const answerCap = answer.toUpperCase();
+    alert("comparing answer = " + answerCap);
+    if (userAnsCap == answerCap) {
+        correct = true;
+        alert("correct");
+    } else {
+        correct = false;
+        alert("incorrect");
     }
 }
-
 // function that checks if input is correct answer for context
-
-
-
-
-
 drinkImage();
-
 //display ingredients with one missing
+let ingredients = document.getElementById("ingredients");
+var f = 0;
+//for martini
 if (drink == 'martini') {
-    const shuffledmartini = martini.sort(() => Math.random() - 0.5);
-    let ingredients = document.getElementById("ingredients");
-    var f = 0;
+    var shuffledmartini = martini.sort(() => Math.random() - 0.5);
     for (let i of shuffledmartini) {
         if (f < 2) {
             let li = document.createElement("li");
@@ -61,11 +51,44 @@ if (drink == 'martini') {
             ingredients.appendChild(li);
             f += 1;
         } else {
+            var answer = shuffledmartini[shuffledmartini.length - 1];
+            //alert("the correct answer = " + answer);
+            f = 0;
             break;
         }
     }
 }
-
-if (drink == 'martini' || ansTrue == true) {
-    var correct = ansCheck(shuffledmartini);
+//for bloodymary
+if (drink == 'bloodyMary') {
+    var shuffledBM = bloodyMary.sort(() => Math.random() - 0.5);
+    for (let i of shuffledBM) {
+        if (f < 4) {
+            let li = document.createElement("li");
+            li.innerText = i;
+            ingredients.appendChild(li);
+            f += 1;
+        } else {
+            var answer = shuffledBM[shuffledBM.length - 1];
+            //alert("the correct answer = " + answer);
+            f = 0;
+            break;
+        }
+    }
+}
+// for pinacolada
+if (drink == 'pinaColada') {
+    var shuffledPC = pinaColada.sort(() => Math.random() - 0.5);
+    for (let i of shuffledPC) {
+        if (f < 4) {
+            let li = document.createElement("li");
+            li.innerText = i;
+            ingredients.appendChild(li);
+            f += 1;
+        } else {
+            var answer = shuffledPC[shuffledPC.length - 1];
+            //alert("the correct answer = " + answer);
+            f = 0;
+            break;
+        }
+    }
 }
