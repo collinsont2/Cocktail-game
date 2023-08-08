@@ -27,16 +27,18 @@ function ansTrue() {
     if (drink == 'martini') {
         alert("as martini");
         var userAns = document.getElementById("missing-ingredient").value;
-        const answer = [shuffledmartini.length - 1];
-        alert(answer);
+        alert("user answer = " + userAns);
+        alert("the correct answer = " + answer);
         const userAnsCap = userAns.toUpperCase();
+        alert("comparing user answer = " + userAnsCap);
         const answerCap = answer.toUpperCase();
-        if (userAnsCap = answerCap) {
+        alert("comparing answer = " + answerCap);
+        if (userAnsCap == answerCap) {
             correct = true;
-            alert(correct);
+            alert("correct");
         } else {
             correct = false;
-            alert(correct);
+            alert("incorrect");
         }
     }
 }
@@ -51,7 +53,7 @@ drinkImage();
 
 //display ingredients with one missing
 if (drink == 'martini') {
-    const shuffledmartini = martini.sort(() => Math.random() - 0.5);
+    var shuffledmartini = martini.sort(() => Math.random() - 0.5);
     let ingredients = document.getElementById("ingredients");
     var f = 0;
     for (let i of shuffledmartini) {
@@ -61,11 +63,9 @@ if (drink == 'martini') {
             ingredients.appendChild(li);
             f += 1;
         } else {
+            var answer = shuffledmartini[shuffledmartini.length - 1];
+            alert("the correct answer = " + answer);
             break;
         }
     }
-}
-
-if (drink == 'martini' || ansTrue == true) {
-    var correct = ansCheck(shuffledmartini);
 }
