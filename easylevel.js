@@ -22,6 +22,30 @@ function drinkImage() {
         }
     }
 }
+function ansTrue() {
+    alert("entered");
+    if (drink == 'martini') {
+        alert("as martini");
+        var userAns = document.getElementById("missing-ingredient").value;
+        const answer = [shuffledmartini.length - 1];
+        alert(answer);
+        const userAnsCap = userAns.toUpperCase();
+        const answerCap = answer.toUpperCase();
+        if (userAnsCap = answerCap) {
+            correct = true;
+            alert(correct);
+        } else {
+            correct = false;
+            alert(correct);
+        }
+    }
+}
+
+// function that checks if input is correct answer for context
+
+
+
+
 
 drinkImage();
 
@@ -40,4 +64,8 @@ if (drink == 'martini') {
             break;
         }
     }
+}
+
+if (drink == 'martini' || ansTrue == true) {
+    var correct = ansCheck(shuffledmartini);
 }
