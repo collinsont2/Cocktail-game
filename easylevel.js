@@ -7,6 +7,7 @@ const drinklist = ['martini', 'pinaColada', 'bloodyMary'];
 // shuffle array of drinks to randomise question given
 const shuffledDrink = drinklist.sort(() => Math.random() - 0.5);
 var drink = shuffledDrink[0];
+
 document.getElementById("title").innerHTML = drink + ("!")
 //show the empty glass of the choosen drink
 function drinkImage() {
