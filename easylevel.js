@@ -62,7 +62,7 @@ if (drink == 'martini') {
             f += 1;
         } else {
             var answer = shuffledmartini[shuffledmartini.length - 1];
-            //alert("the correct answer = " + answer);
+            alert("the correct answer = " + answer);
             f = 0;
             break;
         }
@@ -79,7 +79,7 @@ if (drink == 'bloodyMary') {
             f += 1;
         } else {
             var answer = shuffledBM[shuffledBM.length - 1];
-            //alert("the correct answer = " + answer);
+            alert("the correct answer = " + answer);
             f = 0;
             break;
         }
@@ -87,7 +87,6 @@ if (drink == 'bloodyMary') {
 }
 // for pinacolada
 if (drink == 'pinaColada') {
-    alert("the question is pinacolada")
     var shuffledPC = pinaColada.sort(() => Math.random() - 0.5);
     for (let i of shuffledPC) {
         if (f < 4) {
@@ -97,7 +96,7 @@ if (drink == 'pinaColada') {
             f += 1;
         } else {
             var answer = shuffledPC[shuffledPC.length - 1];
-            //alert("the correct answer = " + answer);
+            alert("the correct answer = " + answer);
             f = 0;
             break;
         }
