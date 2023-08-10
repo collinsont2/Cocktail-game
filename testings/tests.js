@@ -18,5 +18,9 @@ const shuffledArr = arr.sort(() => Math.random() - 0.5);
 alert(shuffledArr);*/
 
 //shuffle type 2
-const last = data[data.length - 1];
-alert("the last value =" + last);
+//const last = data[data.length - 1];
+//alert("the last value =" + last);
+var f = 1;
+if (f > (data.length - 1)) {
+	alert("true");
+}
