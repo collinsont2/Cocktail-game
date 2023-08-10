@@ -21,17 +21,17 @@ function drinkImage() {
     }
 }
 function ansTrue() {
-    alert("entered");
+    //alert("entered");
     var userAns = document.getElementById("missing-ingredient").value;
-    alert("user answer = " + userAns);
-    alert("the correct answer = " + answer);
+    //alert("user answer = " + userAns);
+    //alert("the correct answer = " + answer);
     const userAnsCap = userAns.toUpperCase();
-    alert("comparing user answer = " + userAnsCap);
+    //alert("comparing user answer = " + userAnsCap);
     const answerCap = answer.toUpperCase();
-    alert("comparing answer = " + answerCap);
+    //alert("comparing answer = " + answerCap);
     if (userAnsCap == answerCap) {
         correct = "CORRECT";
-        alert("correct");
+        //alert("correct");
         document.getElementById("answerReveal").innerHTML = (correct);
         for (let i of shuffledDrink) {
             if (drink == i) {
@@ -45,12 +45,14 @@ function ansTrue() {
         }
     } else {
         correct = "INCORRECT";
-        alert("incorrect");
+        //alert("incorrect");
     }
 }
 
 function nextQuestion() {
     correct = 'nothing';
+    var resetReveal = document.getElementById("answerReveal")
+    resetReveal.style.display = 'none';
     drinkImage();
     for (let i of shuffledDrink) {
         if (drink == i) {
@@ -59,60 +61,34 @@ function nextQuestion() {
         }
     }
 }
+function questionForm(levelDrink) {
+    // works // alert(levelDrink);
+    var shuffledingredients = levelDrink.sort(() => Math.random() - 0.5);
+    //alert(shuffledingredients[0]);
+    for (let i of shuffledingredients) {
+        if (f < (shuffledingredients.length - 1)) {
+            let li = document.createElement("li");
+            li.innerText = i;
+            ingredients.appendChild(li);
+            f += 1;
+        } else {
+            var answer = shuffledingredients[shuffledingredients.length - 1];
+            //alert("the correct answer = " + answer);
+            f = 0;
+            break;
+        }
+    }
+    return answer;
+}
 
 drinkImage();
 //display ingredients with one missing
 let ingredients = document.getElementById("ingredients");
 var f = 0;
-//for martini
 if (drink == 'martini') {
-    var shuffledmartini = martini.sort(() => Math.random() - 0.5);
-    for (let i of shuffledmartini) {
-        if (f < 2) {
-            let li = document.createElement("li");
-            li.innerText = i;
-            ingredients.appendChild(li);
-            f += 1;
-        } else {
-            var answer = shuffledmartini[shuffledmartini.length - 1];
-            //alert("the correct answer = " + answer);
-            f = 0;
-            break;
-        }
-    }
+    answer = questionForm(martini);
+} else if (drink == 'pinaColada') {
+    answer = questionForm(pinaColada);
+} else if (drink == 'bloodyMary') {
+    answer = questionForm(bloodyMary);
 }
-//for bloodymary
-if (drink == 'bloodyMary') {
-    var shuffledBM = bloodyMary.sort(() => Math.random() - 0.5);
-    for (let i of shuffledBM) {
-        if (f < 4) {
-            let li = document.createElement("li");
-            li.innerText = i;
-            ingredients.appendChild(li);
-            f += 1;
-        } else {
-            var answer = shuffledBM[shuffledBM.length - 1];
-            //alert("the correct answer = " + answer);
-            f = 0;
-            break;
-        }
-    }
-}
-// for pinacolada
-if (drink == 'pinaColada') {
-    var shuffledPC = pinaColada.sort(() => Math.random() - 0.5);
-    for (let i of shuffledPC) {
-        if (f < 4) {
-            let li = document.createElement("li");
-            li.innerText = i;
-            ingredients.appendChild(li);
-            f += 1;
-        } else {
-            var answer = shuffledPC[shuffledPC.length - 1];
-            //alert("the correct answer = " + answer);
-            f = 0;
-            break;
-        }
-    }
-}
-
