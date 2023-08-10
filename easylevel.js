@@ -7,7 +7,7 @@ const drinklist = ['martini', 'pinaColada', 'bloodyMary'];
 // shuffle array of drinks to randomise question given
 const shuffledDrink = drinklist.sort(() => Math.random() - 0.5);
 var drink = shuffledDrink[0];
-
+var correct = "nothing";
 document.getElementById("title").innerHTML = drink + ("!")
 //show the empty glass of the choosen drink
 function drinkImage() {
@@ -30,14 +30,36 @@ function ansTrue() {
     const answerCap = answer.toUpperCase();
     alert("comparing answer = " + answerCap);
     if (userAnsCap == answerCap) {
-        correct = true;
+        correct = "CORRECT";
         alert("correct");
+        document.getElementById("answerReveal").innerHTML = (correct);
+        for (let i of shuffledDrink) {
+            if (drink == i) {
+                var image = document.getElementById("empty-" + (i))
+                image.style.display = 'none';
+                var newImage = document.getElementById(i)
+                newImage.style.display = 'inline-block';
+            } else {
+                break;
+            }
+        }
     } else {
-        correct = false;
+        correct = "INCORRECT";
         alert("incorrect");
     }
 }
-// function that checks if input is correct answer for context
+
+function nextQuestion() {
+    correct = 'nothing';
+    drinkImage();
+    for (let i of shuffledDrink) {
+        if (drink == i) {
+            var newImage = document.getElementById(i)
+            newImage.style.display = 'none';
+        }
+    }
+}
+
 drinkImage();
 //display ingredients with one missing
 let ingredients = document.getElementById("ingredients");
@@ -93,3 +115,4 @@ if (drink == 'pinaColada') {
         }
     }
 }
+
