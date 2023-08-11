@@ -45,6 +45,7 @@ function ansTrue() {
         }
     } else {
         correct = "INCORRECT";
+        document.getElementById("answerReveal").innerHTML = (correct);
         //alert("incorrect");
     }
 }
@@ -60,6 +61,8 @@ function nextQuestion() {
             newImage.style.display = 'none';
         }
     }
+
+
 }
 function questionForm(levelDrink) {
     // works // alert(levelDrink);
@@ -92,3 +95,7 @@ if (drink == 'martini') {
 } else if (drink == 'bloodyMary') {
     answer = questionForm(bloodyMary);
 }
+
+/*if (drink == shuffledDrink[0]){
+    let drink = (shuffledDrink[0] + 1);
+}*/
