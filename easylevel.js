@@ -54,15 +54,16 @@ function nextQuestion() {
     correct = 'nothing';
     var resetReveal = document.getElementById("answerReveal")
     resetReveal.style.display = 'none';
-    drinkImage();
     for (let i of shuffledDrink) {
         if (drink == i) {
             var newImage = document.getElementById(i)
             newImage.style.display = 'none';
         }
     }
-
-
+    if (drink == shuffledDrink[0]){
+        var drink = (shuffledDrink[0] + 1);
+    }
+    
 }
 function questionForm(levelDrink) {
     // works // alert(levelDrink);
@@ -96,6 +97,3 @@ if (drink == 'martini') {
     answer = questionForm(bloodyMary);
 }
 
-/*if (drink == shuffledDrink[0]){
-    let drink = (shuffledDrink[0] + 1);
-}*/
