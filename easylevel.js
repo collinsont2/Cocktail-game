@@ -52,18 +52,18 @@ function ansTrue() {
 
 function nextQuestion() {
     correct = 'nothing';
+    document.getElementById("ingredients").innerHTML = '';
     var resetReveal = document.getElementById("answerReveal")
     resetReveal.style.display = 'none';
+    var resetTitle = document.getElementById("title")
+    resetTitle.style.display = 'none';
     for (let i of shuffledDrink) {
         if (drink == i) {
             var newImage = document.getElementById(i)
             newImage.style.display = 'none';
         }
     }
-    if (drink == shuffledDrink[0]){
-        var drink = (shuffledDrink[0] + 1);
-    }
-    
+    level2 = true;
 }
 function questionForm(levelDrink) {
     // works // alert(levelDrink);
@@ -97,3 +97,8 @@ if (drink == 'martini') {
     answer = questionForm(bloodyMary);
 }
 
+if (leve1 == true) {
+    alert("level 2");
+    var drink = (shuffledDrink[0] + 1);
+    drinkImage();
+}
