@@ -6,11 +6,17 @@ let bloodyMary = ["Vodka", "Tomato Juice", "Lemon Juice", "Worcestershire Sause"
 const drinklist = ['martini', 'pinaColada', 'bloodyMary'];
 // shuffle array of drinks to randomise question given
 const shuffledDrink = drinklist.sort(() => Math.random() - 0.5);
-var drink = shuffledDrink[0];
+var drink1 = shuffledDrink[0];
+var drink2 = (shuffledDrink[1]);
+var drink2 = (shuffledDrink[2]);
+level1 = true;
 var correct = "nothing";
-document.getElementById("title").innerHTML = drink + ("!")
+
 //show the empty glass of the choosen drink
-function drinkImage() {
+function drinkTitle(drink) {
+    document.getElementById("title").innerHTML = drink + ("!")
+}
+function drinkImage(drink) {
     for (let i of shuffledDrink) {
         if (drink == i) {
             var image = document.getElementById("empty-" + (i))
@@ -21,7 +27,6 @@ function drinkImage() {
     }
 }
 function ansTrue() {
-    //alert("entered");
     var userAns = document.getElementById("missing-ingredient").value;
     //alert("user answer = " + userAns);
     //alert("the correct answer = " + answer);
@@ -34,13 +39,15 @@ function ansTrue() {
         //alert("correct");
         document.getElementById("answerReveal").innerHTML = (correct);
         for (let i of shuffledDrink) {
-            if (drink == i) {
-                var image = document.getElementById("empty-" + (i))
-                image.style.display = 'none';
-                var newImage = document.getElementById(i)
-                newImage.style.display = 'inline-block';
-            } else {
-                break;
+            if (level1 = true){
+                if (drink1 == i) {
+                    var image = document.getElementById("empty-" + (i))
+                    image.style.display = 'none';
+                    var newImage = document.getElementById(i)
+                    newImage.style.display = 'inline-block';
+                } else {
+                    break;
+                }
             }
         }
     } else {
@@ -58,21 +65,23 @@ function nextQuestion() {
     var resetTitle = document.getElementById("title")
     resetTitle.style.display = 'none';
     for (let i of shuffledDrink) {
-        if (drink == i) {
-            var newImage = document.getElementById(i)
-            newImage.style.display = 'none';
-        }
+        if (level1 = true) {
+            if (drink1 == i) {
+                var newImage = document.getElementById(i)
+                newImage.style.display = 'none';
+            }
+        } 
     }
-    if (drink = shuffledDrink[0]) {
+    if (level1 = true) {
         alert("level 1 complete");
+        level1 = false;
         level2 = true;
+    } else if (level2 == true) {
+        alert("level 2 complete");
+        level2 = false;
+        level3 = true;
     }
    
-    if (level2 == true) {
-        alert("level 2");
-        var drink2 = (shuffledDrink[0] + 1);
-        drinkImage();
-    }
     
 }
 function questionForm(levelDrink) {
@@ -95,15 +104,30 @@ function questionForm(levelDrink) {
     return answer;
 }
 
-drinkImage();
 //display ingredients with one missing
 let ingredients = document.getElementById("ingredients");
 var f = 0;
-if (drink == 'martini') {
-    answer = questionForm(martini);
-} else if (drink == 'pinaColada') {
-    answer = questionForm(pinaColada);
-} else if (drink == 'bloodyMary') {
-    answer = questionForm(bloodyMary);
+if (level1 = true) {
+    drinkTitle(drink1);
+    drinkImage(drink1);
+    if (drink1 == 'martini') {
+        answer = questionForm(martini);
+    } else if (drink1 == 'pinaColada') {
+        answer = questionForm(pinaColada);
+    } else if (drink1 == 'bloodyMary') {
+        answer = questionForm(bloodyMary);
+    }
 }
+if (level2 = true) {
+    drinkTitle(drink2);
+    drinkImage(drink2);
+    if (drink2 == 'martini') {
+        answer = questionForm(martini);
+    } else if (drink2 == 'pinaColada') {
+        answer = questionForm(pinaColada);
+    } else if (drink2 == 'bloodyMary') {
+        answer = questionForm(bloodyMary);
+    }
+}
+
 
