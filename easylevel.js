@@ -63,7 +63,17 @@ function nextQuestion() {
             newImage.style.display = 'none';
         }
     }
-    level2 = true;
+    if (drink = shuffledDrink[0]) {
+        alert("level 1 complete");
+        level2 = true;
+    }
+   
+    if (level2 == true) {
+        alert("level 2");
+        var drink2 = (shuffledDrink[0] + 1);
+        drinkImage();
+    }
+    
 }
 function questionForm(levelDrink) {
     // works // alert(levelDrink);
@@ -97,8 +107,3 @@ if (drink == 'martini') {
     answer = questionForm(bloodyMary);
 }
 
-if (leve1 == true) {
-    alert("level 2");
-    var drink = (shuffledDrink[0] + 1);
-    drinkImage();
-}
