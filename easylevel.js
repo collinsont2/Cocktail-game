@@ -8,8 +8,10 @@ const drinklist = ['martini', 'pinaColada', 'bloodyMary'];
 const shuffledDrink = drinklist.sort(() => Math.random() - 0.5);
 var drink1 = shuffledDrink[0];
 var drink2 = (shuffledDrink[1]);
-var drink2 = (shuffledDrink[2]);
-level1 = true;
+//var drink3 = (shuffledDrink[2]);
+let level1 = true;
+let level2 = false;
+let level3 = false;
 var correct = "nothing";
 
 //show the empty glass of the choosen drink
@@ -57,13 +59,25 @@ function ansTrue() {
     }
 }
 
+function levelTwo() {
+    alert("level 2 started");
+    drinkTitle(drink2);
+    drinkImage(drink2);
+    if (drink2 == 'martini') {
+        answer = questionForm(martini);
+    } else if (drink2 == 'pinaColada') {
+        answer = questionForm(pinaColada);
+    } else if (drink2 == 'bloodyMary') {
+        answer = questionForm(bloodyMary);
+    }
+}
 function nextQuestion() {
     correct = 'nothing';
     document.getElementById("ingredients").innerHTML = '';
     var resetReveal = document.getElementById("answerReveal")
     resetReveal.style.display = 'none';
-    var resetTitle = document.getElementById("title")
-    resetTitle.style.display = 'none';
+    /*var resetTitle = document.getElementById("title")
+    //resetTitle.style.display = 'none';
     for (let i of shuffledDrink) {
         if (level1 = true) {
             if (drink1 == i) {
@@ -71,12 +85,15 @@ function nextQuestion() {
                 newImage.style.display = 'none';
             }
         } 
-    }
+    }*/
     if (level1 = true) {
         alert("level 1 complete");
         level1 = false;
         level2 = true;
-    } else if (level2 == true) {
+        if (level2 = true) {
+            levelTwo();
+        }
+    } else if (level2 = true) {
         alert("level 2 complete");
         level2 = false;
         level3 = true;
@@ -115,17 +132,6 @@ if (level1 = true) {
     } else if (drink1 == 'pinaColada') {
         answer = questionForm(pinaColada);
     } else if (drink1 == 'bloodyMary') {
-        answer = questionForm(bloodyMary);
-    }
-}
-if (level2 = true) {
-    drinkTitle(drink2);
-    drinkImage(drink2);
-    if (drink2 == 'martini') {
-        answer = questionForm(martini);
-    } else if (drink2 == 'pinaColada') {
-        answer = questionForm(pinaColada);
-    } else if (drink2 == 'bloodyMary') {
         answer = questionForm(bloodyMary);
     }
 }
