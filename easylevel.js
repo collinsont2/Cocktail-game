@@ -36,19 +36,19 @@ function ansTrue() {
         //alert("correct");
         document.getElementById("answerReveal").innerHTML = (correct);
         if (level1 === true) {
-            alert("level 1 true");
+            //alert("level 1 true");
             var image = document.getElementById("empty-" + (drink1))
             image.style.display = 'none';
             var newImage = document.getElementById(drink1)
             newImage.style.display = 'inline-block';
         } else if (level2 === true) {
-            alert("level 2 true");
+            //alert("level 2 true");
             var image = document.getElementById("empty-" + (drink2))
             image.style.display = 'none';
             var newImage = document.getElementById(drink2)
             newImage.style.display = 'inline-block';
         } else if (level3 === true) {
-            alert("level 3 true");
+            //alert("level 3 true");
             var image = document.getElementById("empty-" + (drink3))
             image.style.display = 'none';
             var newImage = document.getElementById(drink3)
@@ -62,7 +62,7 @@ function ansTrue() {
 }
 
 function levelTwo() {
-    alert("level 2 started");
+    //alert("level 2 started");
     drinkTitle(drink2);
     drinkImage(drink2);
     if (drink2 == 'martini') {
@@ -75,7 +75,7 @@ function levelTwo() {
 }
 
 function levelThree() {
-    alert("level 3 started");
+    //alert("level 3 started");
     drinkTitle(drink3);
     drinkImage(drink3);
     if (drink3 == 'martini') {
@@ -102,12 +102,12 @@ function nextQuestion() {
         newImage.style.display = 'none';*/
     }
     if (level1 === true) {
-        alert("level 1 complete");
+        //alert("level 1 complete");
         level1 = false;
         level2 = true;
         levelTwo();
     } else if (level2 === true) {
-        alert("level 2 complete");
+        //alert("level 2 complete");
         level2 = false;
         level3 = true;
         levelThree()
