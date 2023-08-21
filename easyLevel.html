@@ -7,7 +7,6 @@
             display: inline-block;
             vertical-align: middle;
             align-items: center;
-            display: flex;
             width: min-content;
             justify-content: center;
             text-align: center;
@@ -61,8 +60,8 @@
 
         .pixel-image {
             image-rendering: pixelated;
-            width: 15%;
-            height: 15%;
+            width: 20%;
+            height: 20%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -73,11 +72,19 @@
 
         .question {
             text-align: center;
+
+        }
+
+        ul {
+            text-align: center;
+            margin: 2px;
+            padding: 2px;
+            font-size: larger;
         }
     </style>
     <div>
-        <h1><a href="gameLevels.html" class="pixel-button" role="button">Back</a>Cocktail game</h1>
-    </div>
+        <button onclick="nextQuestion()" class="pixel-button" style="float:right">Next</button>
+        <h1><a href="gameLevels.html" class="pixel-button" role="button" style="display:flex">Back</a>Cocktail game</h1>
 
 </head>
 
@@ -103,7 +110,6 @@
         <button onclick="ansTrue()" class=".pixel-button">Enter</button>
     </div>
     <p style="display:inline-block" id="answerReveal"></p>
-    <button onclick="nextQuestion()" class="pixel-button">Next</button>
     <script src="easylevel.js"></script>
 </body>
 

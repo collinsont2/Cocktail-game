@@ -8,6 +8,7 @@ const drinklist = ['martini', 'pinaColada', 'bloodyMary'];
 const shuffledDrink = drinklist.sort(() => Math.random() - 0.5);
 var drink1 = shuffledDrink[0];
 var drink2 = (shuffledDrink[1]);
+var drink3 = (shuffledDrink[2]);
 //var drink3 = (shuffledDrink[2]);
 let level1 = true;
 let level2 = false;
@@ -19,14 +20,8 @@ function drinkTitle(drink) {
     document.getElementById("title").innerHTML = drink + ("!")
 }
 function drinkImage(drink) {
-    for (let i of shuffledDrink) {
-        if (drink == i) {
-            var image = document.getElementById("empty-" + (i))
-            image.style.display = 'inline-block';
-        } else {
-            break;
-        }
-    }
+    var image = document.getElementById("empty-" + (drink))
+    image.style.display = 'inline-block';
 }
 function ansTrue() {
     var userAns = document.getElementById("missing-ingredient").value;
@@ -40,17 +35,24 @@ function ansTrue() {
         correct = "CORRECT";
         //alert("correct");
         document.getElementById("answerReveal").innerHTML = (correct);
-        for (let i of shuffledDrink) {
-            if (level1 = true){
-                if (drink1 == i) {
-                    var image = document.getElementById("empty-" + (i))
-                    image.style.display = 'none';
-                    var newImage = document.getElementById(i)
-                    newImage.style.display = 'inline-block';
-                } else {
-                    break;
-                }
-            }
+        if (level1 === true) {
+            alert("level 1 true");
+            var image = document.getElementById("empty-" + (drink1))
+            image.style.display = 'none';
+            var newImage = document.getElementById(drink1)
+            newImage.style.display = 'inline-block';
+        } else if (level2 === true) {
+            alert("level 2 true");
+            var image = document.getElementById("empty-" + (drink2))
+            image.style.display = 'none';
+            var newImage = document.getElementById(drink2)
+            newImage.style.display = 'inline-block';
+        } else if (level3 === true) {
+            alert("level 3 true");
+            var image = document.getElementById("empty-" + (drink3))
+            image.style.display = 'none';
+            var newImage = document.getElementById(drink3)
+            newImage.style.display = 'inline-block';
         }
     } else {
         correct = "INCORRECT";
@@ -71,35 +73,47 @@ function levelTwo() {
         answer = questionForm(bloodyMary);
     }
 }
+
+function levelThree() {
+    alert("level 3 started");
+    drinkTitle(drink3);
+    drinkImage(drink3);
+    if (drink3 == 'martini') {
+        answer = questionForm(martini);
+    } else if (drink3 == 'pinaColada') {
+        answer = questionForm(pinaColada);
+    } else if (drink3 == 'bloodyMary') {
+        answer = questionForm(bloodyMary);
+    }
+}
 function nextQuestion() {
     correct = 'nothing';
     document.getElementById("ingredients").innerHTML = '';
     var resetReveal = document.getElementById("answerReveal")
     resetReveal.style.display = 'none';
-    /*var resetTitle = document.getElementById("title")
+    //var resetTitle = document.getElementById("title")
     //resetTitle.style.display = 'none';
     for (let i of shuffledDrink) {
-        if (level1 = true) {
-            if (drink1 == i) {
-                var newImage = document.getElementById(i)
-                newImage.style.display = 'none';
-            }
-        } 
-    }*/
-    if (level1 = true) {
+        //if (drink1 == i) {
+        var newImage = document.getElementById(i)
+        newImage.style.display = 'none';
+        /*} else if (drink2 == i) {
+        var newImage = document.getElementById(i)
+        newImage.style.display = 'none';*/
+    }
+    if (level1 === true) {
         alert("level 1 complete");
         level1 = false;
         level2 = true;
-        if (level2 = true) {
-            levelTwo();
-        }
-    } else if (level2 = true) {
+        levelTwo();
+    } else if (level2 === true) {
         alert("level 2 complete");
         level2 = false;
         level3 = true;
+        levelThree()
     }
-   
-    
+
+
 }
 function questionForm(levelDrink) {
     // works // alert(levelDrink);
