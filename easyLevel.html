@@ -81,6 +81,9 @@
             padding: 2px;
             font-size: larger;
         }
+        .answerReveal{
+            font-size: x-large;
+        }
     </style>
     <div>
         <button onclick="nextQuestion()" class="pixel-button" style="float:right">Next</button>
@@ -109,7 +112,8 @@
         <input placeholder="missing ingredient" id="missing-ingredient">
         <button onclick="ansTrue()" class=".pixel-button">Enter</button>
     </div>
-    <p style="display:inline-block" id="answerReveal"></p>
+    <p style="display:inline-block" id="answerReveal" class="answerReveal"></p>
+    <a href="finish.html" class="pixel-button" role="button" style="display:flex">Finish</a>
     <script src="easylevel.js"></script>
 </body>
 
