@@ -9,11 +9,11 @@ const shuffledDrink = drinklist.sort(() => Math.random() - 0.5);
 var drink1 = shuffledDrink[0];
 var drink2 = (shuffledDrink[1]);
 var drink3 = (shuffledDrink[2]);
-//var drink3 = (shuffledDrink[2]);
 let level1 = true;
 let level2 = false;
 let level3 = false;
 var correct = "nothing";
+var score = 0
 
 //show the empty glass of the choosen drink
 function drinkTitle(drink) {
@@ -25,30 +25,25 @@ function drinkImage(drink) {
 }
 function ansTrue() {
     var userAns = document.getElementById("missing-ingredient").value;
-    //alert("user answer = " + userAns);
-    //alert("the correct answer = " + answer);
     const userAnsCap = userAns.toUpperCase();
-    //alert("comparing user answer = " + userAnsCap);
     const answerCap = answer.toUpperCase();
-    //alert("comparing answer = " + answerCap);
     if (userAnsCap == answerCap) {
         correct = "CORRECT";
-        //alert("correct");
+        score++;
+        document.getElementById("answerReveal").style.border = '3px solid #13bd46';
+        document.getElementById("answerReveal").style.color = "#13bd46";
         document.getElementById("answerReveal").innerHTML = (correct);
         if (level1 === true) {
-            //alert("level 1 true");
             var image = document.getElementById("empty-" + (drink1))
             image.style.display = 'none';
             var newImage = document.getElementById(drink1)
             newImage.style.display = 'inline-block';
         } else if (level2 === true) {
-            //alert("level 2 true");
             var image = document.getElementById("empty-" + (drink2))
             image.style.display = 'none';
             var newImage = document.getElementById(drink2)
             newImage.style.display = 'inline-block';
         } else if (level3 === true) {
-            //alert("level 3 true");
             var image = document.getElementById("empty-" + (drink3))
             image.style.display = 'none';
             var newImage = document.getElementById(drink3)
@@ -57,12 +52,10 @@ function ansTrue() {
     } else {
         correct = "INCORRECT";
         document.getElementById("answerReveal").innerHTML = (correct);
-        //alert("incorrect");
     }
 }
 
 function levelTwo() {
-    //alert("level 2 started");
     drinkTitle(drink2);
     drinkImage(drink2);
     if (drink2 == 'martini') {
@@ -75,7 +68,6 @@ function levelTwo() {
 }
 
 function levelThree() {
-    //alert("level 3 started");
     drinkTitle(drink3);
     drinkImage(drink3);
     if (drink3 == 'martini') {
@@ -91,23 +83,15 @@ function nextQuestion() {
     document.getElementById("ingredients").innerHTML = '';
     var resetReveal = document.getElementById("answerReveal")
     resetReveal.style.display = 'none';
-    //var resetTitle = document.getElementById("title")
-    //resetTitle.style.display = 'none';
     for (let i of shuffledDrink) {
-        //if (drink1 == i) {
         var newImage = document.getElementById(i)
         newImage.style.display = 'none';
-        /*} else if (drink2 == i) {
-        var newImage = document.getElementById(i)
-        newImage.style.display = 'none';*/
     }
     if (level1 === true) {
-        //alert("level 1 complete");
         level1 = false;
         level2 = true;
         levelTwo();
     } else if (level2 === true) {
-        //alert("level 2 complete");
         level2 = false;
         level3 = true;
         levelThree()
@@ -116,9 +100,7 @@ function nextQuestion() {
 
 }
 function questionForm(levelDrink) {
-    // works // alert(levelDrink);
     var shuffledingredients = levelDrink.sort(() => Math.random() - 0.5);
-    //alert(shuffledingredients[0]);
     for (let i of shuffledingredients) {
         if (f < (shuffledingredients.length - 1)) {
             let li = document.createElement("li");
@@ -127,7 +109,6 @@ function questionForm(levelDrink) {
             f += 1;
         } else {
             var answer = shuffledingredients[shuffledingredients.length - 1];
-            //alert("the correct answer = " + answer);
             f = 0;
             break;
         }
@@ -135,7 +116,6 @@ function questionForm(levelDrink) {
     return answer;
 }
 
-//display ingredients with one missing
 let ingredients = document.getElementById("ingredients");
 var f = 0;
 if (level1 = true) {
@@ -150,4 +130,5 @@ if (level1 = true) {
     }
 }
 
+export var endScore = score;
 
