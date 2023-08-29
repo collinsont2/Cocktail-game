@@ -1,4 +1,4 @@
-
+var finalScore = score;
 //lists of ingredients for drinks
 let martini = ["Gin", "Dry Vermouth", "Olive"];
 let pinaColada = ["White Rum", "Bacardi", "Coconut", "pineapple", "Lime Juice"];
@@ -10,11 +10,11 @@ const shuffledDrink = drinklist.sort(() => Math.random() - 0.5);
 var drink1 = shuffledDrink[0];
 var drink2 = (shuffledDrink[1]);
 var drink3 = (shuffledDrink[2]);
-//var drink3 = (shuffledDrink[2]);
 let level1 = true;
 let level2 = false;
 let level3 = false;
 var correct = "nothing";
+var score = 0
 //show the empty glass of the choosen drink
 function drinkTitle(drink) {
     document.getElementById("title").innerHTML = drink + ("!")
@@ -29,7 +29,9 @@ function ansTrue() {
     const answerCap = answer.toUpperCase();
     if (userAnsCap == answerCap) {
         correct = "CORRECT";
+        score++;
         document.getElementById("answerReveal").innerHTML = (correct);
+        document.getElementById("answerReveal").style.display = 'block';
         if (level1 === true) {
             var image = document.getElementById("empty-" + (drink1))
             image.style.display = 'none';
@@ -46,9 +48,14 @@ function ansTrue() {
             var newImage = document.getElementById(drink3)
             newImage.style.display = 'inline-block';
         }
+    } else if (userAnsCap == "") {
+        document.getElementById("answerReveal").innerHTML = ("Something has to be entered!")
+        document.getElementById("answerReveal").style.display = 'block';
+
     } else {
-        correct = "INCORRECT";
-        document.getElementById("answerReveal").innerHTML = (correct);
+        correct = 'INCORRECT';
+        document.getElementById("answerReveal").innerHTML = (correct + ' the correct answer was ' + answer);
+        document.getElementById("answerReveal").style.display = 'block';
     }
 }
 
@@ -86,6 +93,8 @@ function nextQuestion() {
         //if (drink1 == i) {
         var newImage = document.getElementById(i)
         newImage.style.display = 'none';
+        var emptyImage = document.getElementById("empty-" + (i))
+        emptyImage.style.display = 'none';
         /*} else if (drink2 == i) {
         var newImage = document.getElementById(i)
         newImage.style.display = 'none';*/
@@ -130,3 +139,4 @@ if (level1 = true) {
         answer = questionForm(bloodyMary);
     }
 }
+
