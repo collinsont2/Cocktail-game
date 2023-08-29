@@ -32,6 +32,7 @@ function ansTrue() {
         score++;
         document.getElementById("answerReveal").innerHTML = (correct);
         document.getElementById("answerReveal").style.display = 'block';
+        userMove.style.display = 'block';
         if (level1 === true) {
             var image = document.getElementById("empty-" + (drink1))
             image.style.display = 'none';
@@ -54,12 +55,14 @@ function ansTrue() {
 
     } else {
         correct = 'INCORRECT';
+        userMove.style.display = 'block';
         document.getElementById("answerReveal").innerHTML = (correct + ' the correct answer was ' + answer);
         document.getElementById("answerReveal").style.display = 'block';
     }
 }
 
 function levelTwo() {
+    userMove.style.display = 'none';
     drinkTitle(drink2);
     drinkImage(drink2);
     if (drink2 == 'martini') {
@@ -72,6 +75,7 @@ function levelTwo() {
 }
 
 function levelThree() {
+    
     drinkTitle(drink3);
     drinkImage(drink3);
     if (drink3 == 'martini') {
@@ -90,14 +94,10 @@ function nextQuestion() {
     //var resetTitle = document.getElementById("title")
     //resetTitle.style.display = 'none';
     for (let i of shuffledDrink) {
-        //if (drink1 == i) {
         var newImage = document.getElementById(i)
         newImage.style.display = 'none';
         var emptyImage = document.getElementById("empty-" + (i))
         emptyImage.style.display = 'none';
-        /*} else if (drink2 == i) {
-        var newImage = document.getElementById(i)
-        newImage.style.display = 'none';*/
     }
     if (level1 === true) {
         level1 = false;
@@ -129,6 +129,8 @@ function questionForm(levelDrink) {
 let ingredients = document.getElementById("ingredients");
 var f = 0;
 if (level1 = true) {
+    var userMove = document.getElementById("nextButton")
+    userMove.style.display = 'none';
     drinkTitle(drink1);
     drinkImage(drink1);
     if (drink1 == 'martini') {
